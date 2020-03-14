@@ -75,7 +75,7 @@ object ErrorRecovery extends App {
     * preceding `failed` effect into the effect that `run` returns.
     */
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
-    ???
+    failed.fold(_ => StdInputFailed, _ => 1)
 }
 
 object Looping extends App {
