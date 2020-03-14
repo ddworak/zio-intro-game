@@ -29,14 +29,15 @@ object HelloWorld extends App {
     * Implement a simple "Hello World!" program using the effect returned by `putStrLn`.
     */
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] = {
-    val myAppLogic =
-      for {
-        _ <- putStrLn("Hello! What is your name?")
-        name <- getStrLn
-        _ <- putStrLn(s"Hello, ${name}, welcome to ZIO!")
-      } yield 0
-
-    myAppLogic.catchAll(_ => ZIO.succeed(1))
+    //    val myAppLogic =
+    //      for {
+    //        _ <- putStrLn("Hello! What is your name?")
+    //        name <- getStrLn
+    //        _ <- putStrLn(s"Hello, ${name}, welcome to ZIO!")
+    //      } yield 0
+    //
+    //    myAppLogic.catchAll(_ => ZIO.succeed(1))
+    putStrLn("Hello World!").map(_ => 0)
   }
 }
 
