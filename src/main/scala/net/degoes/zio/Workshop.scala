@@ -51,7 +51,10 @@ object PrintSequence extends App {
     * produce an effect that prints three lines of text to the console.
     */
   def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
-    ???
+    (putStrLn("line1") *>
+      putStrLn("line2") *>
+      putStrLn("line3"))
+      .map(_ => 0)
 }
 
 object ErrorRecovery extends App {
