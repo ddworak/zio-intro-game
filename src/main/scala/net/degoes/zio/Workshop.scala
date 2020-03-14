@@ -28,8 +28,16 @@ object HelloWorld extends App {
     *
     * Implement a simple "Hello World!" program using the effect returned by `putStrLn`.
     */
-  def run(args: List[String]): ZIO[ZEnv, Nothing, Int] =
-    ???
+  def run(args: List[String]): ZIO[ZEnv, Nothing, Int] = {
+    val myAppLogic =
+      for {
+        _ <- putStrLn("Hello! What is your name?")
+        name <- getStrLn
+        _ <- putStrLn(s"Hello, ${name}, welcome to ZIO!")
+      } yield ()
+
+    myAppLogic.fold(_ => 1, _ => 0)
+  }
 }
 
 object PrintSequence extends App {
