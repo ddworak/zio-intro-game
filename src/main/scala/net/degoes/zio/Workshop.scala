@@ -34,9 +34,9 @@ object HelloWorld extends App {
         _ <- putStrLn("Hello! What is your name?")
         name <- getStrLn
         _ <- putStrLn(s"Hello, ${name}, welcome to ZIO!")
-      } yield ()
+      } yield 0
 
-    myAppLogic.fold(_ => 1, _ => 0)
+    myAppLogic.catchAll(_ => ZIO.succeed(1))
   }
 }
 
