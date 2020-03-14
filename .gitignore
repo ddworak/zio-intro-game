@@ -1,3 +1,17 @@
 target
 .bloop
 .metals
+.idea/*
+*.iws
+.idea/replstate.xml
+*.class
+*.log
+dist/*
+target/
+.history
+.cache
+.lib/
+*.iml
+out
+gen
+/.attach_pid*
